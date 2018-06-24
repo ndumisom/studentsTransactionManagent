@@ -1,0 +1,69 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+    <window
+            title="Student Transaction Management"
+            border="normal"
+            hflex="1"
+            vflex="1"
+            contentStyle="overflow:auto"
+            apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init(manageTransactionController)" validationMessages="@id('vmsgs')">
+
+        <caption src="img/todo.png"/>
+
+        <borderlayout>
+
+            <east autoscroll="true">
+
+                <hbox>
+                      <grid height="500px"  model="@load(vm.manageTransactionVM.transactionControllerDomains)"
+                          emptyMessage="Nothing in User.">
+                        <columns>
+                            <column label="AccountId" width="80px" />
+                            <column label="firstName" width="160px"/>
+                            <column label="Last Name" width="80px" />
+                            <column label="Student Number"  width="160px"/>
+                            <column label="Budget ID" width="80px" />
+                            <column label="Budget Category" width="80px" />
+                            <column label="Budget Balance" width="80px" />
+                            <column label="Merchant ID" width="80px" />
+                            <column label="Merchant Name" width="160px" />
+                            <column label="Transaction ID" width="120px" />
+                            <column label="Transaction Date" width="160px" />
+                            <column label="Transaction Amount" width="120px" />
+                            <column label="Transaction Type" width="120px" />
+                        </columns>
+                        <template name="model">
+                            <row>
+                                <label value="@load(each.accountNumber)" />
+                                <label value="@load(each.firstName)" />
+                                <label value="@load(each.surname)" />
+                                <label value="@load(each.studentNumber)" />
+                                <label value="@load(each.budget_ID)" />
+                                <label value="@load(each.budgetCategory)" />
+                                <label value="@load(each.balance)" />
+                                <label value="@load(each.merchant_ID)" />
+                                <label value="@load(each.merchantname)" />
+                                <label value="@load(each.transaction_ID)" />
+                                <label value="@load(each.transactionDate)" />
+                                <label value="@load(each.transactionAmount)" />
+                                <label value="@load(each.transactionType)" />
+                            </row>
+                        </template>
+
+
+
+                    </grid>
+
+
+
+                </hbox>
+
+            </east>
+
+        </borderlayout>
+
+
+    </window>
+
+</zk>
